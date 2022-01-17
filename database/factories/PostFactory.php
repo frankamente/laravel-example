@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
@@ -16,7 +17,7 @@ class PostFactory extends Factory
         $title = $this->faker->sentence;
         return [
             'title' => $title,
-            'slug' => 'hola',
+            'slug' => Str::slug($title),
             'body' => $this->faker->text
         ];
     }
