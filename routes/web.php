@@ -20,4 +20,6 @@ Route::view('acerca-de', 'about')->name('about');
 Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::post('store-form', [BlogController::class, 'save']);
-Route::get('problems/{post:id}', [BlogController::class, 'delete'])->name('blog.delete');
+Route::delete('blog/{post:id}', [BlogController::class, 'delete'])->name('blog.delete');
+
+

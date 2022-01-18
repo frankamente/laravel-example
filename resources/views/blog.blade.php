@@ -10,7 +10,7 @@
 
     <div class="card" style="margin: 20px;">
         <div class="card-header text-center font-weight-bold">
-            <h1>Prueba de uso de un API</h1>
+            <h1>Prueba de uso de un CRUD contra base de datos.</h1>
         </div>
         <div class="card-body">
             <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('store-form')}}">
@@ -31,11 +31,14 @@
     <ul>
         @foreach($posts as $post)
             <li>
-                <a href="{{ route('blog.show', $post->slug) }}">{{$post->slug}}</a>
-                <button type="button" style="background-color: transparent; border: transparent;"
-                        onclick="window.location='{{ route("blog.delete", $post->id) }}'"><i class="fa fa-times"
-                                                                                             style="color: red;"></i>
-                </button>
+                <form action='{{ route("blog.delete", $post->id) }}' method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <a href="{{ route('blog.show', $post->slug) }}">{{$post->slug}}</a>
+                    <button type="submit" style="background-color: transparent; border: transparent;">
+                        <i class="fa fa-times" style="color: red;"></i>
+                    </button>
+                </form>
             </li>
         @endforeach
     </ul>
