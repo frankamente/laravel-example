@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
 Route::view('acerca-de', 'about')->name('about');
-Route::view('contactos', 'contact')->name('contact');
 
 Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::post('store-form', [BlogController::class, 'save']);
