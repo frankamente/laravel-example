@@ -2,6 +2,12 @@
 
 @section('content')
 
+    @if(session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <div class="card" style="margin: 20px;">
         <div class="card-header text-center font-weight-bold">
             <h1>Prueba de uso de un API</h1>
@@ -26,6 +32,10 @@
         @foreach($posts as $post)
             <li>
                 <a href="{{ route('blog.show', $post->slug) }}">{{$post->slug}}</a>
+                <button type="button" style="background-color: transparent; border: transparent;"
+                        onclick="window.location='{{ route("blog.delete", $post->id) }}'"><i class="fa fa-times"
+                                                                                             style="color: red;"></i>
+                </button>
             </li>
         @endforeach
     </ul>

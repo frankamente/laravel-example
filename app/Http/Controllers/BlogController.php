@@ -19,6 +19,13 @@ class BlogController extends Controller
         return view('post', compact('post'));
     }
 
+    public function delete($problem_id)
+    {
+        $post = Post::find($problem_id);
+        $post->delete();
+        return redirect('blog')->with('status', 'Post eliminado correctamente.');
+    }
+
     public function save(Request $request)
     {
         $post = Post::factory()->make([
@@ -27,6 +34,6 @@ class BlogController extends Controller
             'slug' => Str::slug($request->title),
         ]);
         $post->save();
-        return redirect('blog')->with('status', 'Blog Post Form Data Has Been inserted');
+        return redirect('blog')->with('status', 'Nuevo Post insertado correctamente.');
     }
 }
