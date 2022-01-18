@@ -14,6 +14,7 @@
     <li><a href="{{ route('home') }}">Home</a></li>
     <li><a href="{{ route('about') }}">Acerca de</a></li>
     <li><a href="{{ route('blog.index') }}">Blog</a></li>
+    <li><a href="{{ route('photo.index') }}">Photos</a></li>
 </ul>
 <div id="app">
     @yield('content')

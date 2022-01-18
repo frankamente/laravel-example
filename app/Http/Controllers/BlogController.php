@@ -19,7 +19,7 @@ class BlogController extends Controller
         return view('post', compact('post'));
     }
 
-    public function delete($problem_id)
+    public function delete(int $problem_id)
     {
         $post = Post::find($problem_id);
         $post->delete();

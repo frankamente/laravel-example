@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,5 @@ Route::post('store-form', [BlogController::class, 'save']);
 Route::delete('blog/{post:id}', [BlogController::class, 'delete'])->name('blog.delete');
 
 
+Route::get('photo', [PhotoController::class, 'index'])->name('photo.index');
+Route::get('photo/{photo:id}', [PhotoController::class, 'detail'])->name('photo.detail');
